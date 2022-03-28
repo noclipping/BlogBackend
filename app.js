@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+let CORS_ACCESS = require("cors");
 let express = require("express");
 let path = require("path");
 let cookieParser = require("cookie-parser");
@@ -19,6 +20,8 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 let app = express();
+// CORS permissions
+CORS_ACCESS();
 
 app.use(logger("dev"));
 app.use(express.json());
