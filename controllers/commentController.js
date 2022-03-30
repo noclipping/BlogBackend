@@ -6,6 +6,11 @@ exports.comment_list = function (req, res, next) {
     res.send(results);
   });
 };
+exports.get_comment = function (req, res, next) {
+  Comment.find({ _id: req.params.id }, (err, result) => {
+    res.send(result);
+  });
+};
 exports.create_comment = function (req, res, next) {
   const comment = new Comment({
     author: req.body.author,
@@ -23,6 +28,7 @@ exports.create_comment = function (req, res, next) {
             next(err);
           }
           console.log("Updated Doc: ", docs);
+          res.send(docs);
         }
       );
     });

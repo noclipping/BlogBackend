@@ -13,9 +13,11 @@ router.get("/", function (req, res, next) {
 // posts
 router.get("/posts", post_controller.post_list);
 router.post("/post/create", post_controller.create_post);
+router.get("/post/:id", post_controller.get_post);
 
 //comments
 router.get("/comments", comment_controller.comment_list);
 router.post("/comment/create", comment_controller.create_comment);
+router.get("/comment/:id", comment_controller.get_comment);
 
 module.exports = router;

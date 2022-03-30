@@ -19,3 +19,9 @@ exports.create_post = function (req, res, next) {
     res.send(result);
   });
 };
+
+exports.get_post = function (req, res, next) {
+  Post.find({ _id: req.params.id }, (err, result) => {
+    res.send(result);
+  });
+};
