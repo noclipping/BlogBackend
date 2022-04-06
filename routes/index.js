@@ -13,6 +13,7 @@ router.get("/", function (req, res, next) {
 // posts
 router.get("/posts", post_controller.post_list);
 router.post("/post/create", post_controller.create_post);
+router.post("/post/publish", post_controller.publish_post);
 router.get("/post/:id", post_controller.get_post);
 
 //comments
