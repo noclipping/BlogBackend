@@ -10,6 +10,7 @@ exports.create_post = async function (req, res, next) {
     title: req.body.title,
     content: req.body.content,
     date: req.body.date,
+    author: req.body.author,
   }).save((err) => {
     if (err) {
       return next(err);
