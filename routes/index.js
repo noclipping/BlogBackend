@@ -14,8 +14,9 @@ router.get("/", function (req, res, next) {
 router.get("/posts", post_controller.post_list);
 router.post("/post/create", post_controller.create_post);
 router.post("/post/publish", post_controller.publish_post);
+router.post("/post/update/:id", post_controller.update_post);
+router.post("/post/delete/:id", post_controller.delete_post);
 router.get("/post/:id", post_controller.get_post);
-
 //comments
 router.get("/comments", comment_controller.comment_list);
 router.post("/comment/create", comment_controller.create_comment);

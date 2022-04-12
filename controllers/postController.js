@@ -36,3 +36,19 @@ exports.publish_post = function (req, res, next) {
     }
   );
 };
+
+exports.delete_post = function (req, res, next) {
+  Post.deleteOne({ _id: req.params.id }, (err, docs) => {
+    res.send(docs);
+  });
+};
+
+exports.update_post = function (req, res, next) {
+  Post.updateOne(
+    { _id: req.params.id },
+    { content: req.body.content },
+    (err, docs) => {
+      res.send(docs);
+    }
+  );
+};
