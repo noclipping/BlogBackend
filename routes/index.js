@@ -7,7 +7,7 @@ const comment_controller = require("../controllers/commentController");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.send("Welcome to the api!");
+  res.redirect("/api");
 });
 
 // posts
