@@ -9,6 +9,9 @@ let cors = require("cors");
 let indexRouter = require("./routes/index");
 let usersRouter = require("./routes/users");
 
+var compression = require("compression");
+var helmet = require("helmet");
+
 const mongoDB = process.env.URI;
 
 const mongoose = require("mongoose");
@@ -21,6 +24,9 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
 let app = express();
 // CORS permissions
+
+app.use(compression()); //Compress all routes
+app.use(helmet());
 app.use(cors());
 app.use(logger("dev"));
 app.use(express.json());
