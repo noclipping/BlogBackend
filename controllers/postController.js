@@ -26,17 +26,6 @@ exports.get_post = function (req, res, next) {
     res.send(result);
   });
 };
-exports.publish_post = function (req, res, next) {
-  Post.updateOne(
-    { _id: req.body.id },
-    { published: req.body.published },
-    (err, docs) => {
-      console.log("Updated Docs: ", docs);
-      res.send(docs);
-    }
-  );
-};
-
 exports.delete_post = function (req, res, next) {
   Post.deleteOne({ _id: req.params.id }, (err, docs) => {
     res.send(docs);
