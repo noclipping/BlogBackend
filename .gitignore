@@ -2,3 +2,4 @@
 .env
 deletePostComments.js
 deleteAllPosts.js
+.prettierrc
