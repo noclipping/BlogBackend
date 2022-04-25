@@ -12,27 +12,28 @@ exports.create_post = [
         .escape()
         .withMessage('Author must be specified.'),
     body('content')
-        .trim()
         .isLength({ min: 1 })
-        .escape()
         .withMessage('Content must be specified.'),
     body('author').trim().isLength({ min: 1 }).escape(),
-
+    body('imgURL').optional(),
+    body('description').trim().isLength({ min: 1 }).escape(),
     function (req, res, next) {
         const errors = validationResult(req)
-        if (!errors.isEmpty()) next(errors)
+        if (!errors.isEmpty()) return next(errors)
+        console.log(req.body.content)
         const post = new Post({
             title: req.body.title,
             content: req.body.content,
             date: req.body.date,
             author: req.body.author,
             imgURL: req.body.imgURL,
+            description: req.body.description,
         }).save((err) => {
             if (err) {
-                next(err)
+                return next(err)
             } else {
                 Post.find({ content: req.body.content }, (err, result) => {
-                    if (err) next(err)
+                    if (err) return next(err)
                     res.send(result)
                 })
             }
