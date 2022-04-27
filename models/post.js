@@ -12,9 +12,7 @@ const PostSchema = new Schema({
         type: String,
         default: 'https://i.imgur.com/0dqdq3m.jpeg',
     },
-    description: {
-        type: { String, required: true },
-    },
+    description: { type: String, required: true },
 })
 
 module.exports = mongoose.model('Post', PostSchema)
