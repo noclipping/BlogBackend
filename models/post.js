@@ -13,7 +13,7 @@ const PostSchema = new Schema({
         default: 'https://i.imgur.com/0dqdq3m.jpeg',
     },
     description: {
-        type: String,
+        type: { String, required: true },
     },
 })
 
